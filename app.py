@@ -20,9 +20,7 @@ def messages():
         return Response(status=415)  
   
     activity = Activity().deserialize(body)  
-    auth_header = (  
-        request.headers["Authorization"] if "Authorization" in request.headers else ""  
-    )  
+    auth_header = (request.headers["Authorization"] if "Authorization" in request.headers else "")  
   
     async def aux_func(turn_context):  
         await bot.on_turn(turn_context)  
@@ -32,6 +30,7 @@ def messages():
             ADAPTER.process_activity(activity, auth_header, aux_func)  
         )  
         LOOP.run_until_complete(task)  
-        return Response(status=201)  
-    except Exception as exception:  
-        raise exception  
+       
+    
+    if __name__ == '__main__':  
+        app.run(localhOST,3978)  
