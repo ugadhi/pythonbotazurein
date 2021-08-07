@@ -1,17 +1,14 @@
-import asyncio  
-import sys 
 from flask import Flask, request, Response  
-from botbuilder.core import (  
-    BotFrameworkAdapter,  
-    BotFrameworkAdapterSettings,     
-    TurnContext,      
-)  
-rom botbuilder.schema import Activity  
-from echobot import*  
-bot = EchoBot()  
+from botbuilder.core import BotFrameworkAdapter,BotFrameworkAdapterSettings,TurnContext,ConversationState,MemoryStorage        
+from botbuilder.schema import Activity 
+import asyncio 
+
 SETTINGS = BotFrameworkAdapterSettings("299f6045-9b9a-48bd-a154-71626fdb0983","2a3547aa-4ef8-4817-9002-bec028f93c5e")  
-ADAPTER = BotFrameworkAdapter(SETTINGS)  
-LOOP = asyncio.get_event_loop()  
+ADAPTER = BotFrameworkAdapter(SETTINGS) 
+
+app=Flask (__name__)
+LOOP = asyncio.get_event_loop() 
+
 @app.route("/api/messages", methods=["POST"])  
 def messages():  
     if "application/json" in request.headers["Content-Type"]:  
