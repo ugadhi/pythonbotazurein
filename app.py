@@ -9,7 +9,7 @@ from botbuilder.core import (
 rom botbuilder.schema import Activity  
 from echobot import*  
 bot = EchoBot()  
-SETTINGS = BotFrameworkAdapterSettings("","")  
+SETTINGS = BotFrameworkAdapterSettings("299f6045-9b9a-48bd-a154-71626fdb0983","2a3547aa-4ef8-4817-9002-bec028f93c5e")  
 ADAPTER = BotFrameworkAdapter(SETTINGS)  
 LOOP = asyncio.get_event_loop()  
 @app.route("/api/messages", methods=["POST"])  
